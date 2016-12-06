@@ -1,4 +1,5 @@
 import model.City;
+import model.Country;
 import model.Person;
 import model.Student;
 import org.hibernate.Session;
@@ -23,16 +24,26 @@ public class Main {
                 .build();
         sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
 
-        City city = new City(0, "Tehran");
+        /*City city = new City(0, "Tehran");
         Student student = new Student();
         student.setFullName("Mohammad");
         student.setAverage(20);
         student.setId(0);
 
-        create(student);
-        /*create(city);
 
-returnListCity();*/
+        create(student);
+        *//*create(city);
+        returnListCity();*/
+        List<City> cities = new ArrayList<City>();
+        cities.add(new City(0,"tehran"));
+        cities.add(new City(0,"tabriz"));
+        cities.add(new City(0,"shiraz"));
+        cities.add(new City(0,"tehran"));
+        Country country = new Country(0, "iran");
+        country.setCities(cities);
+
+        create(country);
+
 
     }
 

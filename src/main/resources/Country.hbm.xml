@@ -12,8 +12,20 @@
 
        <property name="countryName"></property>
 
+        <list name="cities" cascade="all">
 
+            <key column="country_id"/>
+            <index column="type" type="int"></index>
+            <one-to-many class="model.City"/>
+        </list>
 
+    </class>
+    <class name="model.City" table="city">
+
+        <id name="id">
+            <generator class="native" />
+        </id>
+        <property name="cityName"></property>
     </class>
 
 </hibernate-mapping>
